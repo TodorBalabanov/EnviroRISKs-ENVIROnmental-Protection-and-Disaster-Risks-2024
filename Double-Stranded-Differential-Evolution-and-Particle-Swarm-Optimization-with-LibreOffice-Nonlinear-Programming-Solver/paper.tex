@@ -45,7 +45,7 @@ The fundamental concept behind Differential Evolution is to emulate the process 
 
 In the selection stage, solutions demonstrating superior performance on the given problem are more likely to be reproduced. This stage constitutes a fundamental component of population-based algorithms, wherein the fittest individuals from a population are selected to serve as parents for the subsequent generation \cite{Miller-1996}. The selection operator is pivotal in deciding which individuals will contribute genetic material to the next generation, making it a critical factor influencing the performance and efficiency of population-based algorithms. Population-based algorithms employ various selection methods, each presenting distinct advantages and disadvantages.
 
-The selection operator is crucial because it enables population-based algorithms to identify and preserve the best solutions, gradually enhancing the population's overall fitness over time. By choosing the fittest individuals as parents for the next generation, the population-based algorithm can converge toward an optimal solution more rapidly and efficiently than if it were to select parents randomly. However, it is essential to strike a balance between selection pressure and genetic diversity to ensure the algorithm smoothly converges to an optimal solution, avoiding suboptimal outcomes.
+The selection operator is crucial because it enables population-based algorithms to identify and preserve the best solutions, gradually enhancing the population's overall fitness over time. By choosing the fittest individuals as parents for the next generation, the population-based algorithm can converge toward an optimal solution more rapidly and efficiently than if it were to select parents randomly. However, it is essential to strike a balance between selection pressure and genetic diversity to ensure the algorithm smoothly converges to an optimal solution, avoiding sub-optimal outcomes.
 
 \subsection{Crossover in Population-based Algorithms}
 
@@ -55,11 +55,11 @@ The crossover operator is typically applied with a probability known as the cros
 
 The choice of which type of crossover operator to use depends on the problem being solved and the characteristics of the population being evolved. Crossover generally combines the positive traits of parent individuals while minimizing the negative traits; however, it can also introduce new genetic material that may need to be more fit than the original.
 
-One challenge with the crossover operator is the potential for premature convergence, where the algorithm converges too quickly to a suboptimal solution. To mitigate this risk, it is essential to balance crossover with other genetic operators, such as mutation, and carefully control the crossover rate to ensure that the algorithm maintains sufficient genetic diversity throughout evolution.
+One challenge with the crossover operator is the potential for premature convergence, where the algorithm converges too quickly to a sub-optimal solution. To mitigate this risk, it is essential to balance crossover with other genetic operators, such as mutation, and carefully control the crossover rate to ensure that the algorithm maintains sufficient genetic diversity throughout evolution.
 
 \subsection{Mutation in Population-based Algorithms}
 
-In the mutation stage, a random change is made to a candidate solution to introduce diversity in the population. It is a fundamental component of population-based algorithms that introduces small, random changes to an individual's genetic material in a population. The mutation operator is used to maintain genetic diversity in the population of individuals and to prevent the genetic algorithm from becoming stuck in local optima, which can be suboptimal solutions to the problem being solved.
+In the mutation stage, a random change is made to a candidate solution to introduce diversity in the population. It is a fundamental component of population-based algorithms that introduces small, random changes to an individual's genetic material in a population. The mutation operator is used to maintain genetic diversity in the population of individuals and to prevent the genetic algorithm from becoming stuck in local optima, which can be sub-optimal solutions to the problem being solved.
 
 The mutation operator is typically applied with probability (mutation rate)\cite{Greenwell-1995}. This rate determines the likelihood that a given genes in an individual will undergo mutation. Generally, the mutation rate is set to a low value, 1\% or 5\%, to ensure that only a tiny fraction of the population is mutated at any given time. Various types of mutation operators can be employed in population-based algorithms.
 
@@ -79,6 +79,26 @@ The remainder of the paper is organized as follows: The second section presents 
 
 \section{Double-Stranded Candidate Solutions}
 
+As is commonly known, the population of widely employed heuristics comprises chromosomes, each with its distinct existence within the population. These chromosomes emulate the RNA structure found in the biological realm.
+
+While genetic algorithms commonly employ binary encoding, it may only sometimes be optimal for some optimization or simulation problems. Floating-point number encoding is often more suitable for problems involving real numbers, such as benchmark functions like Rastrigin, Sphere, Rosenbrock, and Styblinski-Tang\cite{Jamil-2013}.
+
+Using floating-point number encoding allows a more direct representation of the problem domain. In this encoding, genes in the chromosome represent floating-point values instead of binary values, potentially leading to quicker convergence and superior solutions, particularly in problems with continuous variables.
+
+Various methods for floating-point number encoding exist, including Gray encoding. In floating-point encoding, the chromosome's genes are represented as floating-point numbers. In contrast, the genes are depicted as binary digits converted to real numbers using a specific formula in Gray encoding.
+
+Extending the analogy of genetic algorithms to paired DNA strands is feasible. In this approach, each chromosome in the population would have a complementary pair, akin to the base pairs in DNA strands, termed double-stranded genetic algorithms (DSGAs)\cite{Zang-2019}. In DSGAs, chromosomes are paired, forming complementary pairs treated as single entities during selection, crossover, and mutation operations.
+
+Using paired chromosomes in DSGAs can provide advantages over traditional population-based algorithms, facilitating more efficient search space exploration and enhanced handling of constraints in optimization problems.
+
+It is important to note that DSGAs may entail higher computational costs than traditional algorithms, given the need to maintain complementary pairs and perform operations on pairs rather than individual chromosomes.
+
+The proposal suggests utilizing chromosomes organized as floating-point twins with sign-inverted values in the population, known as floating-point twin optimization. In this method, each chromosome is represented by two twins\cite{Yang-2003}, where values in one twin have the opposite sign to form the other twin. This approach leverages the universality of floating-point encoding.
+
+One advantage of twin chromosomes is their shared fitness value, calculated separately for each twin, mitigating premature convergence to sub-optimal solutions. Additionally, twin chromosomes can contribute complementary information about the search space, aiding in maintaining diversity in the population.
+
+However, it is crucial to acknowledge that using twin chromosomes may incur additional computational costs due to the inversion operation applied to each value. Additionally, this approach may only be suitable for problems that align well with floating-point encoding.
+
 \section{Pragmatic Realization}
 
 \section{Experiments and Results}
@@ -91,6 +111,8 @@ The remainder of the paper is organized as follows: The second section presents 
 
 \bibitem{Greenwell-1995} Greenwell, R.N.; Angus, J.E.; Finck, M. 1995. "Optimal mutation probability for genetic algorithms". Mathematical and Computer Modelling, vol. 21, no. 8, 1-11.
 
+\bibitem{Jamil-2013} Jamil, M.; Yang, X; Zepernick, H.J. 2013. "8 - Test Functions for Global Optimization: A Comprehensive Survey". Swarm Intelligence and Bio-Inspired Computation, Elsevier, 193-222.
+
 \bibitem{Kennedy-1995} Kennedy, J.; Eberhart, R. 1995. "Particle swarm optimization". Proceedings of ICNN'95 - International Conference on Neural Networks, Perth, WA, Australia, vol.4, 1942-1948.
 
 \bibitem{Lambora-2019} Lambora, A.; Gupta, K.; Chopra, K. 2019. "Genetic Algorithm- A Literature Review". International Conference on Machine Learning, Big Data, Cloud and Parallel Computing (COMITCon), Faridabad, India, 380-384.
@@ -98,6 +120,10 @@ The remainder of the paper is organized as follows: The second section presents 
 \bibitem{Miller-1996} Miller, B. L.; Goldberg, D. E. 1996. "Genetic Algorithms, Selection Schemes, and the Varying Effects of Noise" in Evolutionary Computation, vol. 4, no. 2, pp. 113-131.
 
 \bibitem{Umbarkar-2015} Umbarkar, A. J.; Sheth, P. D. 2015. “Crossover operators in genetic algorithms: a review”. ICTACT journal on soft computing, vol. 6, no. 1, 1083-1092.
+
+\bibitem{Yang-2003} Yang, S. 2003. "PDGA: the primal-dual genetic algorithm". IOS Press. 1-10.
+
+\bibitem{Zang-2019} Zang, W.; Zhang, W.; Wang, Z.; Jiang, D.; Liu, X. and Sun, M. 2019. "A Novel Double-Strand DNA Genetic Algorithm for Multi-Objective Optimization". in IEEE Access, vol. 7, 18821-18839.
 
 \end{thebibliography}
 \end{document}
