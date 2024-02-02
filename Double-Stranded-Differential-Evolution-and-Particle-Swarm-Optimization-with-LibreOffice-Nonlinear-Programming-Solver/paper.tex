@@ -34,12 +34,18 @@ Bulgarian Academy of Sciences\\ Institute of Information and Communication Techn
 \begin{abstract}
 Differential Evolution and Particle Swarm Optimization are heuristic global optimization methods inspired by natural evolution and swarm behavior. They are often used to solve complex optimization and simulation problems that are time-consuming or impossible to solve using exact numerical methods. Traditionally, RNA ideas are closer to Differential Evolution population formation. This paper proposes a double-stranded (more DNA-like) implementation of population in LibreOffice Calc NLP Solver. The proposed implementation is validated with well-known optimization benchmark functions.
 
-\keywords{Double-stranded genetic algorithms \and Nonlinear optimization.}
+\keywords{Double-stranded genetic algorithms \and Nonlinear optimization \and LibreOffice.}
 \end{abstract}
 
 \section{Introduction}
 
+The fundamental concept behind Differential Evolution is to emulate the process of natural selection and reproduction to generate a population of potential solutions to a problem. The calculation begins with a random population of candidate solutions and subsequently employs operators, such as selection, crossover, and mutation \cite{Lambora-2019}, to generate new generations of candidate solutions. Similarly, Particle Swarm Optimization draws inspiration from the social behavior of birds and fish, initially proposed by James Kennedy and Russell Eberhart in 1995 \cite{Kennedy-1995}. Both algorithms are effectively employed together in a hybrid implementation for global optimization.
+
 \subsection{Selection in Population-based Algorithms}
+
+In the selection stage, solutions demonstrating superior performance on the given problem are more likely to be reproduced. This stage constitutes a fundamental component of population-based algorithms, wherein the fittest individuals from a population are selected to serve as parents for the subsequent generation \cite{Miller-1996}. The selection operator is pivotal in deciding which individuals will contribute genetic material to the next generation, making it a critical factor influencing the performance and efficiency of population-based algorithms. Population-based algorithms employ various selection methods, each presenting distinct advantages and disadvantages.
+
+The selection operator is crucial because it enables population-based algorithms to identify and preserve the best solutions, gradually enhancing the population's overall fitness over time. By choosing the fittest individuals as parents for the next generation, the population-based algorithm can converge toward an optimal solution more rapidly and efficiently than if it were to select parents randomly. However, it is essential to strike a balance between selection pressure and genetic diversity to ensure the algorithm smoothly converges to an optimal solution, avoiding suboptimal outcomes.
 
 \subsection{Crossover in Population-based Algorithms}
 
@@ -58,6 +64,12 @@ Differential Evolution and Particle Swarm Optimization are heuristic global opti
 \section*{Acknowledgements} This research is partially supported by the ...
 
 \begin{thebibliography}{8}
-\bibitem{}
+
+\bibitem{Kennedy-1995} Kennedy, J.; Eberhart, R. 1995. "Particle swarm optimization". Proceedings of ICNN'95 - International Conference on Neural Networks, Perth, WA, Australia, vol.4, 1942-1948.
+
+\bibitem{Lambora-2019} Lambora, A.; Gupta, K.; Chopra, K. 2019. "Genetic Algorithm- A Literature Review". International Conference on Machine Learning, Big Data, Cloud and Parallel Computing (COMITCon), Faridabad, India, 380-384.
+
+\bibitem{Miller-1996} Miller, B. L.; Goldberg, D. E. 1996. "Genetic Algorithms, Selection Schemes, and the Varying Effects of Noise" in Evolutionary Computation, vol. 4, no. 2, pp. 113-131.
+
 \end{thebibliography}
 \end{document}
