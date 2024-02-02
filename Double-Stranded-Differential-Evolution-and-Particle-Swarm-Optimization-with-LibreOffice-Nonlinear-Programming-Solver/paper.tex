@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\title{Double-Stranded Differential Evolution and Particle Swarm Optimization with LibreOffice Nonlinear Programming Solver\thanks{Supported by organization Velbazhd Software LLC.}}
+\title{Double-Stranded Differential Evolution and Particle Swarm Optimization with LibreOffice Nonlinear Programming Solver\thanks{Supported by Velbazhd Software LLC.}}
 
 \titlerunning{Double-Stranded DE\&PSO with LO NPS}
 
@@ -49,9 +49,33 @@ The selection operator is crucial because it enables population-based algorithms
 
 \subsection{Crossover in Population-based Algorithms}
 
+In the crossover stage, two or more candidate solutions are merged to form a new candidate solution. This stage holds significance in population-based algorithms, as it emulates the process of sexual reproduction in biological organisms. This process entails the exchange of genetic material between parent individuals to generate offspring possessing a combination of their traits. The crossover operator is employed to enhance the population's genetic diversity and provide novel solutions that may better suit the problem at hand.
+
+The crossover operator is typically applied with a probability known as the crossover rate, which determines the likelihood of performing crossover on a given pair of parents. Various types of crossover operators can be utilized in population-based algorithms \cite{Umbarkar-2015}.
+
+The choice of which type of crossover operator to use depends on the problem being solved and the characteristics of the population being evolved. Crossover generally combines the positive traits of parent individuals while minimizing the negative traits; however, it can also introduce new genetic material that may need to be more fit than the original.
+
+One challenge with the crossover operator is the potential for premature convergence, where the algorithm converges too quickly to a suboptimal solution. To mitigate this risk, it is essential to balance crossover with other genetic operators, such as mutation, and carefully control the crossover rate to ensure that the algorithm maintains sufficient genetic diversity throughout evolution.
+
 \subsection{Mutation in Population-based Algorithms}
 
+In the mutation stage, a random change is made to a candidate solution to introduce diversity in the population. It is a fundamental component of population-based algorithms that introduces small, random changes to an individual's genetic material in a population. The mutation operator is used to maintain genetic diversity in the population of individuals and to prevent the genetic algorithm from becoming stuck in local optima, which can be suboptimal solutions to the problem being solved.
+
+The mutation operator is typically applied with probability (mutation rate)\cite{Greenwell-1995}. This rate determines the likelihood that a given genes in an individual will undergo mutation. Generally, the mutation rate is set to a low value, 1\% or 5\%, to ensure that only a tiny fraction of the population is mutated at any given time. Various types of mutation operators can be employed in population-based algorithms.
+
+The choice of which type of mutation operator to use depends on the problem being solved and the characteristics of the evolving population. In general, mutation introduces new genetic material that may benefit the solution to the problem. However, excessive mutation can lead to a loss of fitness in the population. Therefore, it is crucial to balance mutation with other genetic operators, such as crossover, to ensure that the population-based algorithm converges efficiently toward an optimal solution.
+
+Over time, the population evolves towards better solutions as the algorithm repeatedly applies these operators to generate new generations of candidate solutions. Population-based algorithms have been employed for a wide range of problems, from optimization problems in engineering to game-playing and machine learning.
+
 \subsection{Natural Genetics}
+
+Ribonucleic acid is a molecule that plays a crucial role in transferring genetic information in living organisms. Similar to how RNA serves as a genetic code conveying information from DNA to ribosomes, specific population-based algorithms utilize a population of candidate solutions as a form of genetic code, conveying information about potential solutions to a problem. Like RNA, some population-based algorithms employ selective pressure and random mutation to generate diverse populations of candidate solutions. These solutions are then assessed based on their fitness or ability to address the problem. The evolution of these populations over time mirrors the process of genetic information evolution in living organisms, where the fittest solutions survive and propagate while less fit solutions die out. Heuristics in population-based algorithms provide a distinctive simulation of the processes representing evolution in the real world.
+
+\subsection*{The Proposition}
+
+In this study, single chromosomes are paired to mimic the structure of DNA. Each candidate solution has its complementary counterpart, and together, they form a complementary pair.
+
+The remainder of the paper is organized as follows: The second section presents the conceptual idea; the third section describes the practical implementation as a LibreOffice Calc model; the fourth section discusses the experimental part and the results achieved; the last section concludes and proposes further research.
 
 \section{Double-Stranded Candidate Solutions}
 
@@ -61,15 +85,19 @@ The selection operator is crucial because it enables population-based algorithms
 
 \section{Conclusions}
 
-\section*{Acknowledgements} This research is partially supported by the ...
+\section*{Acknowledgements} This work has been granted funding from the National Scientific fund program for COST actions support KP-06-KOST/23.
 
 \begin{thebibliography}{8}
+
+\bibitem{Greenwell-1995} Greenwell, R.N.; Angus, J.E.; Finck, M. 1995. "Optimal mutation probability for genetic algorithms". Mathematical and Computer Modelling, vol. 21, no. 8, 1-11.
 
 \bibitem{Kennedy-1995} Kennedy, J.; Eberhart, R. 1995. "Particle swarm optimization". Proceedings of ICNN'95 - International Conference on Neural Networks, Perth, WA, Australia, vol.4, 1942-1948.
 
 \bibitem{Lambora-2019} Lambora, A.; Gupta, K.; Chopra, K. 2019. "Genetic Algorithm- A Literature Review". International Conference on Machine Learning, Big Data, Cloud and Parallel Computing (COMITCon), Faridabad, India, 380-384.
 
 \bibitem{Miller-1996} Miller, B. L.; Goldberg, D. E. 1996. "Genetic Algorithms, Selection Schemes, and the Varying Effects of Noise" in Evolutionary Computation, vol. 4, no. 2, pp. 113-131.
+
+\bibitem{Umbarkar-2015} Umbarkar, A. J.; Sheth, P. D. 2015. “Crossover operators in genetic algorithms: a review”. ICTACT journal on soft computing, vol. 6, no. 1, 1083-1092.
 
 \end{thebibliography}
 \end{document}
