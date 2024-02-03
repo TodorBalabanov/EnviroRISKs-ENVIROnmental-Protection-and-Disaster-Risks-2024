@@ -101,6 +101,26 @@ However, it is crucial to acknowledge that using twin chromosomes may incur addi
 
 \section{Pragmatic Realization}
 
+LibreOffice Calc has a powerful module called NLP Solver for global non-linear problem optimization. Several algorithms are available, but a hybrid combination of differential evolution and particle swarm optimization is the most powerful.
+
+The numerical problem for which an optimal solution will be sought is entered into the spreadsheet sheet. Initial values, randomly selected, are set in consecutive cells, preferably in a column, but not necessarily required. In an adjacent column, calculations are performed for each value of the function being optimized. For functions that involve sums, a specific cell is designated to receive the target value for optimization. The proposed spreadsheet model can be accessed at the following information source \cite{Balabanov-2024}.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig1.png}
+\caption{LibreCalc optimization problem model} \label{fig1}
+\end{figure}
+
+As illustrated in Fig. \ref{fig1}, the initial data column comprises the X vector supplied to the target function. The second column replicates the same vector but with negative values. These two vectors constitute a complementary pair. The Rosenbrock and Styblinski-Tang function values are computed for each vector. From the resulting values, the minimum is populated into the target cell. Given that the objective is minimization, the smaller of the two values is selected as the fitness value of the complementary pair.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig2.png}
+\caption{NLP Solver configuration} \label{fig2}
+\end{figure}
+
+As depicted in Fig. \ref{fig2}, the target cell comprises the computed value of the function, and only the first twin of the complement pair is permitted to change through differential evolution and particle swarm optimization processes. The second twin is automatically generated due to the modifications made to the first twin.
+
+The performance ratio of the two optimization algorithms, differential evolution, and particle swarm optimization is 50 to 50\%. The crossover probability is set at 90\% in differential evolution, and the scaling factor is 0.5. For the particle swarm optimization, the cognitive constant is 1.494, and the constriction coefficient is 0.729. No mutation is applied in the particle swarm, and the social constant is maintained at 1.494. The swarm size is configured to have 70 individuals.
+
 \section{Experiments and Results}
 
 \section{Conclusions}
@@ -110,6 +130,8 @@ In conclusion, enhancing population-based algorithms inspired by DNA in LibreOff
 \section*{Acknowledgements} This work has been granted funding from the National Scientific fund program for COST actions support KP-06-KOST/23.
 
 \begin{thebibliography}{8}
+
+\bibitem{Balabanov-2024} Balabanov, T. 2024. "Rosenbrock and Styblinski-Tang benchmark function reproduced as double-stranded chromosomes for LibreOffice Calc NLP Solver", ResearchGate GmbH, 10.13140/RG.2.2.14156.59528
 
 \bibitem{Greenwell-1995} Greenwell, R.N.; Angus, J.E.; Finck, M. 1995. "Optimal mutation probability for genetic algorithms". Mathematical and Computer Modelling, vol. 21, no. 8, 1-11.
 
