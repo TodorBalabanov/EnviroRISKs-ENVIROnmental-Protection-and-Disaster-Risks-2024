@@ -4,6 +4,8 @@
 
 \usepackage{graphicx}
 
+\usepackage[table]{xcolor}
+
 %\usepackage{color}
 %\renewcommand\UrlFont{\color{blue}\rmfamily}
 
@@ -119,9 +121,27 @@ As illustrated in Fig. \ref{fig1}, the initial data column comprises the X vecto
 
 As depicted in Fig. \ref{fig2}, the target cell comprises the computed value of the function, and only the first twin of the complement pair is permitted to change through differential evolution and particle swarm optimization processes. The second twin is automatically generated due to the modifications made to the first twin.
 
-The performance ratio of the two optimization algorithms, differential evolution, and particle swarm optimization is 50 to 50\%. The crossover probability is set at 90\% in differential evolution, and the scaling factor is 0.5. For the particle swarm optimization, the cognitive constant is 1.494, and the constriction coefficient is 0.729. No mutation is applied in the particle swarm, and the social constant is maintained at 1.494. The swarm size is configured to have 70 individuals.
-
 \section{Experiments and Results}
+
+All experiments were conducted on a computer with the following specifications: Asus-2023, featuring a 12th Gen Intel(R) Core(TM) i7-12700 processor running at 2.10 GHz, 32.0 GB of RAM, and a 64-bit operating system (x64-based processor). The specific Windows version used was Windows 11 Pro 23H2 22631.3007, and the software employed for the experiments was LibreOffice Community 7.5.9.2 (X86\_64) with a total of 20 CPU threads.
+
+Rosenbrock and Styblinski-Tang's functions were employed as benchmark functions for experimental simulations. They were selected due to the asymmetry present in the negative twin. Calculations were conducted in a 1000-dimensional space over 100 optimization cycles. 
+
+The performance ratio of the two optimization algorithms, differential evolution and particle swarm optimization, is 50 to 50\%. The crossover probability is set at 90\% in differential evolution, and the scaling factor is 0.5. For the particle swarm optimization, the cognitive constant is 1.494, and the constriction coefficient is 0.729. No mutation is applied in the particle swarm, and the social constant is maintained at 1.494. The swarm size is configured to have 70 individuals.
+
+\begin{table}
+\caption{Experimental results}\label{tab1}
+\centering
+\resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+ & \multicolumn{ 2}{l|}{\cellcolor{gray!40}\textbf{Rosenbrock – Single}} & \multicolumn{ 2}{l|}{\cellcolor{gray!40}\textbf{Rosenbrock – Twins}} & \multicolumn{ 2}{l|}{\cellcolor{gray!40}\textbf{Styblinski-Tang – Single}} & \multicolumn{ 2}{l|}{\cellcolor{gray!40}\textbf{Styblinski-Tang – Twins}} \\ \hline
+ & \cellcolor{gray!20}\textbf{Value} & \cellcolor{gray!20}\textbf{Time [s]} & \cellcolor{gray!20}\textbf{Value} & \cellcolor{gray!20}\textbf{Time [s]} & \cellcolor{gray!20}\textbf{Value} & \cellcolor{gray!20}\textbf{Time [s]} & \cellcolor{gray!20}\textbf{Value} & \cellcolor{gray!20}\cellcolor{gray!20}\textbf{Time [s]} \\ \hline
+\cellcolor{gray!20}\textbf{Mean} & \multicolumn{1}{r|}{5265.11} & \multicolumn{1}{r|}{17.79} & \multicolumn{1}{r|}{5131.65} & \multicolumn{1}{r|}{17.64} & \multicolumn{1}{r|}{-293.30} & \multicolumn{1}{r|}{17.32} & \multicolumn{1}{r|}{-280.76} & \multicolumn{1}{r|}{17.30} \\ \hline
+\textbf{SD} & \multicolumn{1}{r|}{749.38} & \multicolumn{1}{r|}{0.70} & \multicolumn{1}{r|}{613.06} & \multicolumn{1}{r|}{0.66} & \multicolumn{1}{r|}{61.40} & \multicolumn{1}{r|}{0.74} & \multicolumn{1}{r|}{45.50} & \multicolumn{1}{r|}{0.77} \\ \hline
+\end{tabular}}
+\end{table}
+
+The optimization process has been initiated 30 times. The average values and their standard deviation are presented in Tab. \ref{tab1}. It is evident that double-stranded optimization yields better results within the same time frame compared to regular optimization.
 
 \section{Conclusions}
 
